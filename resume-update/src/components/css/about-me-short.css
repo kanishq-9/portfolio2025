@@ -1,0 +1,88 @@
+.about-me-short{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2vh;
+}
+
+.rubik-normal {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.rubik-medium {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.rubik-large {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.light-grey {
+  color: #a1a1a1;
+}
+
+.spacing {
+    letter-spacing: 5px;
+}
+
+.ideas-data-main{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ideas-data {
+  background-color: #262626;
+  margin: 1em;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .ideas-data{
+    width: 100%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+ @media only screen and (min-width: 600px) {
+  .ideas-data{
+    width: 100%;
+  }
+ }
+ @media only screen and (min-width: 992px){
+.ideas-data{
+  width: 40%;
+}
+}
+
+/*Medium devices (landscape tablets, 768px and up) 
+@media only screen and (min-width: 768px) {...} */
+
+.ideas-data-title{
+  color: #fafafa;
+  font-weight: bold;
+}
+
+.ideas-data-desc{
+  color: #95a1a1;
+  text-align: center;
+  font-size: small;
+}

@@ -1,0 +1,25 @@
+.join-me {
+    background-color: #262626;
+    width: 90%;
+    min-height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5em;
+    margin: 3em;
+    border-radius: 20px;
+}
+
+.red-hat-text-large {
+  font-family: "Red Hat Text", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.red-hat-text-medium {
+  font-family: "Red Hat Text", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
