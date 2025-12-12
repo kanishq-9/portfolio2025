@@ -33,6 +33,10 @@ function Navbar() {
         startNavAnimation();
     })
 
+    const handleClick=function(){
+        window.location.href = `mailto:kanishq.r.purohit9@gmail.com`;
+      }
+
   return (
     <div className='navbar momo-trust-display-regular'>
         <div className='logo'>
@@ -68,7 +72,7 @@ function Navbar() {
                 </div>
             </Link>
         </div>
-        <div className="contact-email"> 
+        <div className="contact-email" onClick={handleClick?handleClick:undefined}> 
             Email Me
         </div>
     </div>

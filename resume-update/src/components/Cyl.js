@@ -23,7 +23,7 @@ function Cyl() {
   txt.magFilter = THREE.NearestFilter;
   txt.anisotropy = 16;
   useFrame((state, delta) => {
-    cyl.current.rotation.y += delta * 0.5;
+    cyl.current.rotation.y += delta * 0.2;
   });
   return (
     <group rotation={[0, 0, 0.3]} scale={[scale, scale, scale]} >

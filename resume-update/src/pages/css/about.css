@@ -1,0 +1,42 @@
+.about-main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.profile-image{
+    height: 20em;
+    border-radius: 10px;
+}
+
+.about-intro{
+    font-size: x-large;
+    color: #98a1a1;
+}
+
+.tilt-wrapper {
+  perspective: 800px;
+  padding: 20px;
+  display: inline-block;
+}
+
+.about-social-link{
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.social-link{
+    background-color: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-radius 0.2s ease;
+}
+
+.social-link:hover{
+    background-color: rgb(80, 78, 80);
+    border-radius: 50%;
+    
+}
