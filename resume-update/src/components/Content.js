@@ -49,7 +49,7 @@ function Content() {
   return (
     <div className="content">
       <div className="intro">
-        <div className="merriweather-sans-normal name">
+        <div className="font-canela-bold name">
           {adminhName.map((element, idx) => {
             return (
               <span
@@ -63,7 +63,7 @@ function Content() {
             );
           })}
         </div>
-        <div className="asap-desc asap-desc-content">
+        <div className="font-canela-light canela-light-content">
           {descArray.map((element, idx) => (
             <span
               style={{ display: "inline-block" }}

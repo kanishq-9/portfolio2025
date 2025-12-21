@@ -37,7 +37,7 @@ function Journey() {
         {
           backgroundColor: "#8c52ff",
           ease: "none",
-          duration: 0.2,
+          duration: 1,
           scrollTrigger: {
             trigger: container,
             start: "top 60%",

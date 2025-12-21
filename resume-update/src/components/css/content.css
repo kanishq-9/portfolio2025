@@ -1,3 +1,24 @@
+@font-face {
+    font-family: "Canela";
+    src: url('../../fonts/canela_bold.woff') format('woff');
+    font-display: swap;
+    font-size-adjust: 0.5;
+}
+
+@font-face {
+    font-family: "Canela-light";
+    src: url('../../fonts/canela_light.woff') format('woff');
+    font-display: swap;
+    font-size-adjust: 0.5;
+}
+
+@font-face {
+    font-family: "Destomed";
+    src: url('../../fonts/Destomed\ 400.ttf') format('woff');
+    font-display: swap;
+    font-size-adjust: 0.5;
+}
+
 .content {
     display: flex;
     flex-direction: column;
@@ -6,6 +27,8 @@
     min-height: 150vh;
     width: 100%;
 }
+
+
 
 .intro {
     position: relative;
@@ -24,6 +47,16 @@
   font-style: normal;
 }
 
+.font-canela-bold{
+font-family: 'Destomed', serif !important;
+font-size: 5em !important;
+font-weight:500;
+}
+
+.font-canela-light{
+    font-family: 'Canela-light', serif !important;
+}
+
 .asap-desc {
   font-family: "Asap", sans-serif;
   font-optical-sizing: auto;
@@ -35,8 +68,11 @@
 
 }
 
-.asap-desc-content {
+.canela-light-content {
     color: rgb(119, 119, 121);
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 3px;
 }
 
 .name {
@@ -52,3 +88,4 @@
     padding: 5px 15px;
     margin: 5px 25px;
 }
+
