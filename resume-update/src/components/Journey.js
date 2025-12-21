@@ -24,8 +24,8 @@ function Journey() {
         ease: "none",
         scrollTrigger: {
           trigger: container,
-          start: "top 60%",
-          end: "bottom 60%",
+          start: "top 50%",
+          end: "bottom 50%",
           scrub: true,
         },
       });
@@ -40,8 +40,8 @@ function Journey() {
           duration: 1,
           scrollTrigger: {
             trigger: container,
-            start: "top 60%",
-            end: "bottom 60%",
+            start: "top 50%",
+            end: "bottom 50%",
             toggleActions: "play reverse play reverse",
           },
         }
@@ -53,8 +53,8 @@ function Journey() {
         ease: "none",
         scrollTrigger: {
             trigger: container,
-            start: "top 60%",
-            end: "bottom 60%",
+            start: "top 50%",
+            end: "bottom 50%",
             toggleActions: "play reverse play reverse",
           },
       });
@@ -65,8 +65,8 @@ function Journey() {
         ease: "none",
         scrollTrigger: {
             trigger: container,
-            start: "top 60%",
-            end: "bottom 60%",
+            start: "top 50%",
+            end: "bottom 50%",
             toggleActions: "play reverse play reverse",
           },
       });

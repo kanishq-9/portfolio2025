@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import "./css/project.css";
 
 function Projects() {
   return (
-    <div>Projects</div>
+    <div className='project-main'>Projects</div>
   )
 }
 

@@ -67,6 +67,29 @@
 .small-box-skills {
   aspect-ratio: 1 / 1;
    overflow: hidden;
+   position: relative;
+}
+
+.skills-title{
+    position: absolute;
+    bottom: 0px;
+    opacity: 0;
+    left: 0;
+    width: 100%;
+    font-family: 'Canela-light', serif !important;
+    letter-spacing: 0.3em;
+    padding: 0.3em;
+    backdrop-filter: blur(5px);
+    background: rgba(0,0,0,0.35);
+    border-color: rgb(73, 72, 72);
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.big-box:hover .skills-title,
+.small-box-skills:hover .skills-title{
+    opacity: 1;
 }
 
 .skills-image{

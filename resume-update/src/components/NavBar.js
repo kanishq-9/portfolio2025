@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import icon from "../icon/apple-touch-icon.png";
 import { Link } from 'react-router-dom';
 import "./css/navbar.css";
@@ -6,6 +6,22 @@ import gsap from 'gsap';
 import {useGSAP} from "@gsap/react";
 
 function Navbar() {
+    const navref = useRef();
+    useLayoutEffect(()=>{
+        if(!navref.current) return;
+        const updateHeight = ()=>{
+            const height = navref.current.offsetHeight;
+            document.documentElement.style.setProperty(
+                "--navbar-height",
+                `${height}px`
+            ); 
+        }
+        updateHeight();
+        const observer = new ResizeObserver(updateHeight);
+        observer.observe(navref.current);
+
+        return ()=>observer.disconnect();
+    },[]);
     const activateTab = (e)=>{
         const select = e.target.closest('.nav-menu');
         if(select){
@@ -38,7 +54,7 @@ function Navbar() {
       }
 
   return (
-    <div className='navbar momo-trust-display-regular'>
+    <div className='navbar momo-trust-display-regular' ref={navref}>
         <div className='logo'>
             <img src={icon} alt='logo'/>
         </div>
