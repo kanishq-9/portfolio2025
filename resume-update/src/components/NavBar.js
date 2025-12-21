@@ -26,18 +26,6 @@ function Navbar() {
 
     return () => observer.disconnect();
   }, []);
-  // const activateTab = (e)=>{
-  //     const select = e.target.closest('.nav-menu');
-  //     if(select){
-  //         const noOfMenu = e.target.closest(".nav-content").children.length;
-  //         for(let i=0; i<noOfMenu; i++){
-  //             e.target.closest(".nav-content").children[i].classList.remove('active');
-  //         }
-  //         requestAnimationFrame(()=>{
-  //             select.classList.add("active");
-  //         });
-  //     }
-  // }
 
   const { contextSafe } = useGSAP();
   const startNavAnimation = contextSafe(() => {
