@@ -1,17 +1,29 @@
 import React from 'react';
 import "./css/circlecard.css";
 
+// Importing local assets
+import event from "../assets/project/eventmanagement.png";
+import forkify from "../assets/project/forkify.png";
+import game from "../assets/project/game.png";
+import nasa from "../assets/project/nasa.png";
+import mapty from "../assets/project/mapty.png";
+import matchmaker from "../assets/project/matchmaker.png";
+import newsapp from "../assets/project/newsapp.png";
+import sorting from "../assets/project/sorting.png";
+import watchtogether from "../assets/project/watchtogether.png";
+
 function CircleCard() {
-  const images = [
-    'https://images.unsplash.com/photo-1764957080687-9569e738a238?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1764957080687-9569e738a238?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1764957080687-9569e738a238?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1764957080687-9569e738a238?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1764957080687-9569e738a238?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1764957080687-9569e738a238?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1764957080687-9569e738a238?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1764957080687-9569e738a238?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1764957080687-9569e738a238?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+  // 1. Refactored into an array of objects
+  const projectData = [
+    { name: "Event Management", img: event, link: "https://github.com/kanishq-9/event-management" },
+    { name: "Forkify", img: forkify, link: "https://github.com/kanishq-9/javaScript" },
+    { name: "Pro Game", img: game, link: "https://github.com/kanishq-9/javaScript" },
+    { name: "Mapty", img: mapty, link: "https://github.com/kanishq-9/javaScript" },
+    { name: "NASA Project", img: nasa, link: "https://github.com/kanishq-9/NASA-PROJECT" },
+    { name: "Matchmaker", img: matchmaker, link: "https://github.com/kanishq-9/matchmaker" },
+    { name: "News App", img: newsapp, link: "https://github.com/kanishq-9/newApi_React" },
+    { name: "Sorting playground", img: sorting, link: "https://github.com/kanishq-9/sorting-visuals" },
+    { name: "In Progress", img: watchtogether, link: "https://github.com/kanishq-9/work-together" }, // Placeholder for 9th slot
   ];
 
   return (
@@ -19,19 +31,20 @@ function CircleCard() {
       <div className="grid-container">
         {[0, 1, 2].map((colIndex) => (
           <div key={colIndex} className="grid-column">
-            {/* Logic to grab 3 unique images per column */}
-            <div className="grid-item">
-              <img src={images[colIndex * 3]} alt="" />
-            </div>
-            <div className="grid-item">
-              <img src={images[colIndex * 3 + 1]} alt="" />
-              {colIndex === 1 && <div className="item-label">CLICK US</div>}
-            </div>
-            <div className="grid-item">
-              <img src={images[colIndex * 3 + 2]} alt="" />
-            </div>
-            {/* Spacer to prevent immediate gap at the bottom
-            <div style={{ height: '20vh' }}></div> */}
+            {[0, 1, 2].map((rowIndex) => {
+              const project = projectData[colIndex * 3 + rowIndex];
+              return (
+                <div key={rowIndex} className="grid-item">
+                  <a href={project.link} target="_blank" rel="noopener noreferrer">
+                    <img src={project.img} alt={project.name} />
+                    <div className="project-title">{project.name}</div>
+                  </a>
+                  {colIndex === 1 && rowIndex === 1 && (
+                    <div className="item-label">CLICK US</div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         ))}
       </div>

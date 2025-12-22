@@ -7,12 +7,13 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import "./css/app.css";
+import ScrollToTop from "./components/ScrollToTop";
 function App() {
   return (
     <BrowserRouter>
     <Navbar/>
     <main className="app-main">
-
+    <ScrollToTop />
     
     <Routes>
         <Route path="/" element={<Content />} />

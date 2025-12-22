@@ -23,7 +23,6 @@ function Projects() {
         },
       });
 
-      // 1. Zoom the text (Cuts a hole through the black)
       tl.to(textGroupRef.current, {
         scale: 400,
         transformOrigin: "50% 50%",
@@ -32,7 +31,7 @@ function Projects() {
       .to(overlayRef.current, {
         opacity: 0,
         duration: 0.3,
-      }, "-=0.2")
+      }, "-=0.5")
       .to(".grid-column:nth-child(1)", { y: "-200vh", ease: "none" }, ">")
       .to(".grid-column:nth-child(2)", { y: "-250vh", ease: "none" }, "<")
       .to(".grid-column:nth-child(3)", { y: "-180vh", ease: "none" }, "<");
@@ -45,12 +44,10 @@ function Projects() {
   return (
     <div ref={mainContainer} className="project-wrapper">
       <section className="project-main">
-        {/* BACKGROUND LAYER (Gradient + Images) */}
         <div className="background-animate">
             <CircleCard />
         </div>
 
-        {/* TOP LAYER (The Black Mask) */}
         <svg className="text-mask" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
           <defs>
             <mask id="text-reveal">
