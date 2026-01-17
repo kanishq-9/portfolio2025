@@ -106,11 +106,12 @@
     display: block;
   }
 
+  /* Dropdown menu hidden by default */
   .nav-content {
     position: absolute;
     top: var(--navbar-height);
     right: 1em;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(20, 20, 30, 0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     flex-direction: column;
@@ -119,32 +120,33 @@
     border-radius: 16px;
     gap: 5px;
     padding: 0;
+
+    max-height: 0;      /* hidden */
+    opacity: 0;         /* invisible */
+    pointer-events: none; /* not clickable */
     overflow: hidden;
 
-    /* Hidden by default */
-    max-height: 0;
-    opacity: 0;
-
-    /* Ensure it's touchable only when open */
-    pointer-events: none;
-
-    z-index: 999; /* IMPORTANT for mobile */
+    z-index: 1010;
     transition: max-height 0.25s ease, padding 0.25s ease, opacity 0.25s ease;
   }
 
+  /* Dropdown open state */
   .nav-content.open {
-    max-height: 500px; /* enough for all links */
+    max-height: 500px; /* enough to show all links */
     opacity: 1;
-    pointer-events: auto; /* allow touches now */
+    pointer-events: auto; /* now clickable */
     padding: 1em;
   }
 
+  /* Links in mobile dropdown */
   .nav-content .link {
     color: white;
+    text-decoration: none;
     padding: 10px 0;
     text-align: center;
   }
 
+  /* Hide desktop-only contact email */
   .contact-email {
     display: none;
   }
