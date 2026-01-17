@@ -38,6 +38,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .merriweather-sans-normal {
@@ -45,16 +46,27 @@
   font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  white-space: normal;
 }
 
 .font-canela-bold{
 font-family: 'Destomed', serif !important;
 font-size: 5em !important;
 font-weight:500;
+word-break: keep-all;
+  overflow-wrap: normal;
+  white-space: normal;
+  min-width: fit-content;
 }
 
 .font-canela-light{
     font-family: 'Canela-light', serif !important;
+    word-break: keep-all;
+  overflow-wrap: normal;
+  white-space: normal;
+  min-width: fit-content;
 }
 
 .asap-desc {
@@ -65,6 +77,10 @@ font-weight:500;
   font-size: 1.5em;
   font-variation-settings:
     "wdth" 100;
+    word-break: keep-all;
+  overflow-wrap: normal;
+  white-space: normal;
+  min-width: fit-content;
 
 }
 
@@ -73,11 +89,19 @@ font-weight:500;
     font-size: 1.5em;
     font-weight: bold;
     letter-spacing: 3px;
+    word-break: keep-all;
+  overflow-wrap: normal;
+  white-space: normal;
+  min-width: fit-content;
 }
 
 .name {
     font-size: 3em;
     overflow: hidden;
+    word-break: keep-all;
+  overflow-wrap: normal;
+  white-space: normal;
+  min-width: fit-content;
 }
 
 .intro-footer {
@@ -87,5 +111,24 @@ font-weight:500;
     border-radius: 25px;
     padding: 5px 15px;
     margin: 5px 25px;
+}
+
+@media (max-width: 768px) {
+  .font-canela-bold {
+    font-size: 2.8em !important;
+  }
+
+  .name {
+    font-size: 2em;
+  }
+
+  .asap-desc,
+  .canela-light-content {
+    font-size: 1.1em;
+  }
+
+  .canela-light-content {
+    letter-spacing: 1px;
+  }
 }
 

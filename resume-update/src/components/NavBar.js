@@ -1,12 +1,14 @@
-import React, { useEffect, useLayoutEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import icon from "../icon/apple-touch-icon.png";
 import { NavLink } from "react-router-dom";
+import { RxHamburgerMenu } from "react-icons/rx";
 import "./css/navbar.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 function Navbar() {
   const navref = useRef();
+  const [open, setOpen] = useState(false);
   let lastHeight = useRef(0);
   useLayoutEffect(() => {
     if (!navref.current) return;
@@ -29,7 +31,7 @@ function Navbar() {
 
   const { contextSafe } = useGSAP();
   const startNavAnimation = contextSafe(() => {
-    gsap.from(".logo img, .nav-content, .contact-email", {
+    gsap.from(".nav-content, .contact-email", {
       y: "10px",
       duration: 1,
       opacity: 0,
@@ -50,7 +52,13 @@ function Navbar() {
       <div className="logo">
         <img src={icon} alt="logo" />
       </div>
-      <div className="nav-content">
+
+      <div className="hamburger" onClick={()=>setOpen(!open)}>
+        <RxHamburgerMenu />
+      </div>
+
+
+      <div className={`nav-content ${open?"open":""}`}>
         <NavLink className="link nav-home nav-menu" to="/">
           <div>Home</div>
           <div className="underline"></div>

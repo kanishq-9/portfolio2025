@@ -72,3 +72,23 @@
 .inner-container-1 a {
     text-decoration: none;
 }
+
+@media only screen and (max-width: 600px) {
+    .inner-container-1 {
+    font-size: 0.75rem;   /* or 12px–14px range */
+    line-height: 1.4;
+  }
+
+  .inner-container-1 a {
+    font-size: 0.8rem;
+  }
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  
+}
+@media only screen and (min-width: 992px) {
+  
+}

@@ -46,3 +46,22 @@
 .text-mask text {
   vector-effect: non-scaling-stroke;
 }
+
+@media (max-width: 600px) {
+  .project-main {
+    height: 100svh;
+  }
+
+  .text-mask {
+    width: 100%;
+    height: 100%;
+  }
+
+  .text-mask text {
+    font-size: 8px !important;
+  }
+
+  .background-animate {
+    animation-duration: 14s;
+  }
+}

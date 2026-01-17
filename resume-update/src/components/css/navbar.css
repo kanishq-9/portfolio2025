@@ -1,5 +1,5 @@
 :root {
-    --transition-time : 0.3s;
+  --transition-time: 0.3s;
 }
 
 .momo-trust-display-regular {
@@ -8,87 +8,142 @@
   font-style: normal;
 }
 
-
-.navbar > .logo > img{
-    border-radius: 5px;
-    height: 2em;
+.navbar > .logo > img {
+  border-radius: 5px;
+  height: 2em;
 }
 
 .navbar {
-    width: 100%;
-    height: fit-content;
-    position: fixed;
-    padding:1em;
-    background-color: rgba(255, 255, 255, 0);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 0.01px solid rgb(87, 86, 86);
-    z-index: 10;
+  width: 100%;
+  height: fit-content;
+  position: fixed;
+  padding: 1em 2em;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
+  z-index: 100;
 }
 
 .nav-content {
-    display: flex;
-    justify-content: space-between;
-    width: 350px;
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
 }
 
 .contact-email {
-    border: 0.1px solid rgb(148, 147, 147);
-    padding: 10px;
-    border-radius: 25px;
+  border: 0.1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 25px;
+  transition: background-color var(--transition-time) ease,
+              color var(--transition-time) ease;
 }
 
 .contact-email:hover {
-    background-color: aliceblue;
-    color: black;
-    transition: background-color var(--transition-time) ease-in;
-    transition: color var(--transition-time) ease-in;
-    cursor: pointer;
+  background-color: #ffffff10;
+  color: #ffffff;
+  cursor: pointer;
 }
-
 
 .nav-menu {
-    position: relative;
-    padding:5px;
-}
-.nav-menu:hover {
-    cursor: pointer;
+  position: relative;
+  padding: 5px 10px;
+  font-size: 1em;
+  color: white;
+  width: 100%;
+  text-align: center;
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
 }
 
-.nav-menu:hover .underline{
-    cursor: pointer;
-    transform: translateX(-50%) scale(1);
-    opacity: 1;
+.nav-menu:hover {
+  cursor: pointer;
 }
 
 .nav-menu .underline {
-    position: absolute;
-    left: 50%;
-    bottom: -2px;
-    height: 5px;
-    width: 5px;
-    transform: translateX(-50%) scale(0);
-    background-color: aliceblue;
-    border-radius: 50%;
-    opacity: 0;
-    transition:
-        opacity 0.5s ease,
-        transform 0.5s ease,
-        width 0.5s ease,
-        height 0.5s ease,
-        border-radius 0.5s ease;
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  height: 3px;
+  width: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateX(-50%) scale(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+.nav-menu:hover .underline,
 .nav-menu.active .underline {
-    transform: translateX(-50%) scale(1);
-    height: 3px;
-    width: 20px;
-    border-radius: 10px;
-    opacity: 1;
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
 }
 
-.link{
-    text-decoration: none;
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+  padding: 0.2em;
+  transition: transform 0.2s ease;
+}
+
+.hamburger:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 1024px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-content {
+    position: absolute;
+    top: var(--navbar-height);
+    right: 1em;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    flex-direction: column;
+    align-items: stretch;
+    width: 220px;
+    border-radius: 16px;
+    gap: 5px;
+    padding: 0;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: 
+      max-height 0.25s ease,
+      padding 0.25s ease,
+      opacity 0.25s ease;
+  }
+
+  .nav-content.open {
+    max-height: 500px; /* enough for your links */
+    opacity: 1;
+    pointer-events: auto;
+    padding: 1em;
+  }
+
+  .nav-content .link {
     color: white;
+    padding: 10px 0;
+  }
+
+  .contact-email {
+    display: none;
+  }
 }

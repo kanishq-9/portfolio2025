@@ -31,6 +31,7 @@ function Footer() {
   }
 
   return (
+    
     <footer className='footer'>
       <motion.div
       onMouseMove={handleMouseMove}

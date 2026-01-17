@@ -1,7 +1,23 @@
-*{
-    background-color: #000;
+html, body{
+    max-width: 100% !important;
+    overflow-x: clip;
     box-sizing: border-box;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img, canvas {
+  max-width: 100%;
+}
+
+.flex-child {
+  min-width: 0;
+}
+
 
 
 

@@ -11,10 +11,17 @@ function JoinMe() {
       }
   }
   return (
+    <div style={{
+      width:"100%",
+      display:"flex",
+      justifyContent:"center",
+      alignItems:"center"
+    }}>
     <div className='join-me red-hat-text-large'>
         <h1 style={{color:'#fafafa'}}>Ready to start your project?</h1>
         <h1 style={{color:'#a1a1a1'}}>Let's build amazing things together</h1>
         <Link to="/contact" className='project-button red-hat-text-medium' style={{marginTop:"1em", padding:"1em 2em", textDecoration:"none"}} onClick={handleClick}>Get in touch</Link>
+    </div>
     </div>
   )
 }

@@ -12,6 +12,7 @@ function Cyl() {
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
+    if (!size?.width) return;
     if (size.width < 300) setScale(0.3);
     else if(size.width < 600) setScale(0.5);
     else if (size.width < 900) setScale(0.7);

@@ -70,7 +70,7 @@ const keypointStyling = {
 
 
   return (
-    <div className="about-me-short" style={{ width: "55%" }}>
+    <div className="about-me-short">
       <div className=" rubik-medium spacing light-grey">About Me</div>
       <div
         className=" merriweather-sans-normal"

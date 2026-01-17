@@ -12,19 +12,20 @@ function Projects() {
   const overlayRef = useRef(null);
 
   useLayoutEffect(() => {
+    const isMobile = window.innerWidth < 600;
     let ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: mainContainer.current,
           start: "top top",
-          end: "+=400%",
+          end: isMobile ? "+=250%" : "+=400%",
           scrub: 1,
           pin: true,
         },
       });
 
       tl.to(textGroupRef.current, {
-        scale: 400,
+        scale: isMobile ? 180 : 400,
         transformOrigin: "50% 50%",
         ease: "power2.in",
       }, 0)
@@ -32,9 +33,9 @@ function Projects() {
         opacity: 0,
         duration: 0.3,
       }, "-=0.5")
-      .to(".grid-column:nth-child(1)", { y: "-200vh", ease: "none" }, ">")
-      .to(".grid-column:nth-child(2)", { y: "-250vh", ease: "none" }, "<")
-      .to(".grid-column:nth-child(3)", { y: "-180vh", ease: "none" }, "<");
+      .to(".grid-column:nth-child(1)", { y: isMobile ? "-120vh" : "-200vh", ease: "none" }, ">")
+    .to(".grid-column:nth-child(2)", { y: isMobile ? "-150vh" : "-250vh", ease: "none" }, "<")
+    .to(".grid-column:nth-child(3)", { y: isMobile ? "-100vh" : "-180vh", ease: "none" }, "<");
 
     }, mainContainer);
 

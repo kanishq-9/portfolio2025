@@ -11,7 +11,7 @@ function ProjectSnippet() {
             <ProjectCanvas />
         </div>
         <div className='project-snippet-desc'>
-            <div style={{margin:"20px 10px"}}>
+            <div style={{margin:"20px 10px", textAlign:"center"}}>
             Continue Exploring
             </div>
             <Link style={{textDecoration:"none"}} className='project-button red-hat-text-medium' to="/projects">
