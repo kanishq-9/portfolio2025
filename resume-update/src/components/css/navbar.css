@@ -120,27 +120,29 @@
     gap: 5px;
     padding: 0;
     overflow: hidden;
+
+    /* Hidden by default */
     max-height: 0;
     opacity: 0;
+
+    /* Ensure it's touchable only when open */
     pointer-events: none;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: 
-      max-height 0.25s ease,
-      padding 0.25s ease,
-      opacity 0.25s ease;
+
+    z-index: 999; /* IMPORTANT for mobile */
+    transition: max-height 0.25s ease, padding 0.25s ease, opacity 0.25s ease;
   }
 
   .nav-content.open {
-    max-height: 500px; /* enough for your links */
+    max-height: 500px; /* enough for all links */
     opacity: 1;
-    pointer-events: auto;
+    pointer-events: auto; /* allow touches now */
     padding: 1em;
   }
 
   .nav-content .link {
     color: white;
     padding: 10px 0;
+    text-align: center;
   }
 
   .contact-email {
