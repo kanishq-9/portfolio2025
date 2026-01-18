@@ -46,23 +46,24 @@ const keypointStyling = {
               boxSizing:"border-box"
             };
 
-  const displayIdeas = ()=>{
-     return  ideasData.map((dataValue)=>{
-        return (<div className="ideas-data">
-          <div style={{
-            display:"flex",
-            flexDirection:"row",
-            alignItems:"center",
-            justifyContent:"center"
-          }}>
+  const displayIdeas = () => {
+  return ideasData.map((dataValue, index) => {
+    return (
+      <div className="ideas-data" key={dataValue.id || index}> 
+        <div style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center"
+        }}>
           <div style={keypointStyling}>{dataValue.icon}</div>
           <div className="ideas-data-title">{dataValue.title}</div>
-            </div>
-          <div className="ideas-data-desc">{dataValue.desc}</div>
-          </div>
-        );
-      })
-  }
+        </div>
+        <div className="ideas-data-desc">{dataValue.desc}</div>
+      </div>
+    );
+  });
+}
 
 
 

@@ -1,30 +1,33 @@
 :root {
   --transition-time: 0.3s;
+  --navbar-height: 70px; /* Fallback */
 }
 
 .momo-trust-display-regular {
   font-family: "Momo Trust Display", sans-serif;
   font-weight: 400;
-  font-style: normal;
-}
-
-.navbar > .logo > img {
-  border-radius: 5px;
-  height: 2em;
 }
 
 .navbar {
   width: 100%;
   height: fit-content;
   position: fixed;
+  top: 0;
+  left: 0;
   padding: 1em 2em;
-  background-color: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(10px);
+  background-color: rgba(10, 10, 15, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
-  z-index: 100;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
+  z-index: 9999; /* Ensure it's above everything */
+}
+
+.navbar > .logo > img {
+  border-radius: 5px;
+  height: 2em;
 }
 
 .nav-content {
@@ -34,71 +37,49 @@
 }
 
 .contact-email {
-  border: 0.1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
-  padding: 10px 15px;
+  padding: 10px 20px;
   border-radius: 25px;
-  transition: background-color var(--transition-time) ease,
-              color var(--transition-time) ease;
+  cursor: pointer;
+  transition: all var(--transition-time) ease;
 }
 
 .contact-email:hover {
-  background-color: #ffffff10;
-  color: #ffffff;
-  cursor: pointer;
+  background-color: white;
+  color: black;
 }
 
 .nav-menu {
   position: relative;
   padding: 5px 10px;
-  font-size: 1em;
   color: white;
-  width: 100%;
-  text-align: center;
-  border-radius: 10px;
-  transition: background-color 0.2s ease;
-}
-
-.nav-menu:hover {
-  cursor: pointer;
+  text-decoration: none;
 }
 
 .nav-menu .underline {
   position: absolute;
   left: 50%;
   bottom: -2px;
-  height: 3px;
-  width: 20px;
-  background-color: #ffffff;
-  border-radius: 10px;
+  height: 2px;
+  width: 15px;
+  background-color: white;
   opacity: 0;
-  transform: translateX(-50%) scale(0);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateX(-50%) scaleX(0);
+  transition: all 0.3s ease;
 }
 
 .nav-menu:hover .underline,
 .nav-menu.active .underline {
   opacity: 1;
-  transform: translateX(-50%) scale(1);
+  transform: translateX(-50%) scaleX(1);
 }
 
-.link {
-  text-decoration: none;
-  color: white;
-}
-
-/* Hamburger */
 .hamburger {
   display: none;
   font-size: 28px;
-  cursor: pointer;
   color: white;
-  padding: 0.2em;
-  transition: transform 0.2s ease;
-}
-
-.hamburger:hover {
-  transform: scale(1.1);
+  cursor: pointer;
 }
 
 @media (max-width: 1024px) {
@@ -106,48 +87,66 @@
     display: block;
   }
 
-  /* Dropdown menu hidden by default */
+  .contact-email {
+    display: none;
+  }
+
   .nav-content {
     position: absolute;
     top: var(--navbar-height);
-    right: 1em;
-    background-color: rgba(20, 20, 30, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    right: 1.5em;
+    width: 220px; /* Slightly wider for better centering */
+    background-color: rgba(20, 20, 30, 0.98); 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    
+    /* Layout Logic */
+    display: flex;
     flex-direction: column;
-    align-items: stretch;
-    width: 220px;
-    border-radius: 16px;
-    gap: 5px;
-    padding: 0;
-
-    max-height: 0;      /* hidden */
-    opacity: 0;         /* invisible */
-    pointer-events: none; /* not clickable */
+    align-items: center; /* Centers the links horizontally */
+    justify-content: center;
+    gap: 10px;
+    
+    /* Animation/Hidden States */
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
     overflow: hidden;
-
-    z-index: 1010;
-    transition: max-height 0.25s ease, padding 0.25s ease, opacity 0.25s ease;
+    pointer-events: none;
+    padding: 0; /* Reset padding when closed */
+    transition: all 0.3s ease-in-out;
   }
 
-  /* Dropdown open state */
   .nav-content.open {
-    max-height: 500px; /* enough to show all links */
     opacity: 1;
-    pointer-events: auto; /* now clickable */
-    padding: 1em;
+    visibility: visible;
+    max-height: 500px;
+    padding: 1.5em 0; /* Add vertical padding when open */
+    pointer-events: auto;
   }
 
-  /* Links in mobile dropdown */
-  .nav-content .link {
-    color: white;
-    text-decoration: none;
-    padding: 10px 0;
-    text-align: center;
+  .nav-menu {
+    width: 100%;
+    padding: 12px 0;
+    text-align: center; /* KEY FIX: Change from left to center */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    
+    /* Ensure flex children (text + underline) stay centered */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
   }
 
-  /* Hide desktop-only contact email */
-  .contact-email {
-    display: none;
+  .nav-menu:last-child {
+    border-bottom: none;
+  }
+
+  /* Keep the underline perfectly centered under the text */
+  .nav-menu .underline {
+    position: absolute;
+    bottom: 5px; /* Adjust so it's close to the text */
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
   }
 }

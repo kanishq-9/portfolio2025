@@ -31,12 +31,15 @@ function Navbar() {
 
   const { contextSafe } = useGSAP();
   const startNavAnimation = contextSafe(() => {
-    gsap.from(".nav-content, .contact-email", {
-      y: "10px",
-      duration: 1,
-      opacity: 0,
-      stagger: 0.3,
-    });
+    if (window.innerWidth > 1024) {
+      gsap.from(".nav-content, .contact-email", {
+        y: "10px",
+        duration: 1,
+        opacity: 0,
+        stagger: 0.3,
+        clearProps: "all",
+      });
+    }
   });
 
   useEffect(() => {
